@@ -1,0 +1,13 @@
+<!-- Toolbar -->
+<mat-toolbar color="primary" class="header" *ngIf="!isAuthenticated">
+    <div>HRM App</div>
+    <button mat-button routerLink="/login" style="position: absolute;right: 0;">
+        <mat-icon>power_settings_new</mat-icon>
+        Login
+    </button>
+
+</mat-toolbar>
+
+<app-side-nav *ngIf="isAuthenticated"></app-side-nav>
+<app-login *ngIf="!isAuthenticated"></app-login>
+<!-- <router-outlet *ngIf="!isAuthenticated"></router-outlet> -->

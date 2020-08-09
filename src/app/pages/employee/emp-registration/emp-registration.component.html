@@ -1,0 +1,47 @@
+<!--<div class="grid-container">
+   <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile colspan="2" rowspan="1"> -->
+<mat-card>
+
+  <mat-card-content>
+    <div>
+      <form [formGroup]="empForm" (ngSubmit)="onSubmit()" autocomplete="off">
+        <mat-error *ngIf="message != ''" [ngClass]="errorClass">
+          {{message}}
+        </mat-error>
+        <mat-form-field class="full-width-input">
+          <input matInput placeholder="Name" formControlName="name" required>
+          <mat-error>
+            Please provide a valid name
+          </mat-error>
+          <!-- <mat-error *ngIf="form.controls.username.errors?.required">Email is required</mat-error> -->
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <input matInput placeholder="Email" formControlName="email" required>
+          <mat-error>
+            Please provide a valid email address
+          </mat-error>
+          <!-- <mat-error *ngIf="form.controls.username.errors?.required">Email is required</mat-error> -->
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <input matInput placeholder="Mobile" formControlName="mobile" required>
+          <mat-error>
+            Please provide a valid mobile
+          </mat-error>
+          <!-- <mat-error *ngIf="form.controls.username.errors?.required">Email is required</mat-error> -->
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <input matInput type="password" placeholder="Password" formControlName="password" required>
+          <mat-error>
+            Please provide a valid password
+          </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" [disabled]="!empForm.valid">Save</button>
+      </form>
+
+    </div>
+  </mat-card-content>
+</mat-card>
+<!-- </mat-grid-tile>
+  </mat-grid-list> 
+</div>-->

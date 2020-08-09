@@ -1,0 +1,59 @@
+<!-- Toolbar -->
+<mat-toolbar color="primary" class="header" *ngIf="isAuthenticated">
+    <div>Easy-HR</div>
+
+    <span class="nav-tool-items">
+        <mat-icon (click)="sidenav.toggle()" class="hamburger">menu</mat-icon>
+    </span>
+    <button mat-button (click)="logout()" style="position: absolute;
+    right: 0;">
+        <mat-icon>exit_to_app</mat-icon>
+        Logout
+    </button>
+</mat-toolbar>
+<mat-sidenav-container>
+
+    <!-- Sidenav -->
+    <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="true"
+        [fixedTopGap]>
+        <mat-nav-list>
+            <a mat-list-item routerLink='/'>
+                <mat-icon>dashboard</mat-icon> Dashboard
+            </a>
+            <a mat-list-item (click)="navigateTo('emp')">
+                <mat-icon>person</mat-icon> Emp Reg
+            </a>
+            <a mat-list-item>
+                <mat-icon>person</mat-icon> User Profile
+            </a>
+            <a mat-list-item>
+                <mat-icon>content_paste</mat-icon> Table List
+            </a>
+            <a mat-list-item>
+                <mat-icon>library_books</mat-icon> Typography
+            </a>
+            <a mat-list-item>
+                <mat-icon>location_on</mat-icon> Maps
+            </a>
+            <a mat-list-item>
+                <mat-icon>calendar_today</mat-icon> Calendar
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <!-- Main content -->
+    <mat-sidenav-content>
+
+        <!-- Applying the mat-tyography class adds styles for native elements. -->
+        <section class="mat-typography title-group" style="display: none;">
+            <h1>{{pageHead}}</h1>
+            <mat-divider></mat-divider>
+        </section>
+
+        <!-- Angular material cards -->
+        <div class="productCards">
+            <router-outlet></router-outlet>
+        </div>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>

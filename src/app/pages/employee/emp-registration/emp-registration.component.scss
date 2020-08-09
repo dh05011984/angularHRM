@@ -1,0 +1,54 @@
+.grid-container {
+    margin: 2px;
+  }
+  
+  .dashboard-card {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+  }
+  
+  .more-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+  
+  .dashboard-card-content {
+    text-align: center;
+  }
+  
+  .mat-grid-list {
+    display: block;
+    position: relative;
+  }
+
+  mat-card {
+    max-width: 600px;
+    margin:10px;
+    text-align: center;
+  }
+  
+  mat-form-field {
+    display: block;
+  }
+  .error{
+    color:#f44336;
+  }
+  .message{
+    color:green;
+  }
+
+
+
+   .mat-tab-list
+   {
+       width:200px !important;
+       
+   }
+   .mat-tab-links
+   {
+       display:block !important;
+   }
