@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmpHomeComponent implements OnInit {
 
-  links = ['home', 'registration', 'profile'];
+  links = ['home', 'registration', 'profile', 'skills', 'banks'];
   activeLink = this.links[0];
   constructor() { }
 

@@ -1,1 +1,157 @@
-<p>emp-profile works!</p>
+<div class="container">
+    <mat-card>
+        <mat-card-content>
+
+            <form [formGroup]="empForm" (ngSubmit)="onSubmit()" autocomplete="off">
+                <!-- <mat-error *ngIf="message != ''" [ngClass]="errorClass">
+                    {{message}}
+                </mat-error> -->
+                <div class="flex-container" fxLayout="row" fxLayout.xs="column">
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="EmpId" formControlName="empId" required>
+                        <mat-error>
+                            Please provide a valid EmpId
+                        </mat-error>
+                        <!-- <mat-error *ngIf="form.controls.username.errors?.required">Email is required</mat-error> -->
+                    </mat-form-field>
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="FirstName" formControlName="firstName" required>
+                        <mat-error>
+                            Please provide a valid FirstName
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="MidName" formControlName="midName">
+                        <mat-error>
+                            Please provide a valid MidName
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="LastName" formControlName="lastName" required>
+                        <mat-error>
+                            Please provide a valid LastName
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="flex-container" fxLayout="row" fxLayout.xs="column">
+                    <mat-form-field class="full-width-input" color="accent">
+                        <mat-label>DOB</mat-label>
+                        <input matInput [matDatepicker]="pickerdob" formControlName="dob" required>
+                        <mat-datepicker-toggle matSuffix [for]="pickerdob"></mat-datepicker-toggle>
+                        <mat-datepicker #pickerdob></mat-datepicker>
+                        <mat-error>
+                            Please provide a valid DOB
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width-input">
+                        <mat-label>Gender</mat-label>
+                        <mat-select formControlName="gender" required>
+                            <mat-option *ngFor="let gender of ['Male','Female']" [value]="gender">
+                                {{gender}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error>
+                            Please provide a valid Gender
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="BloodGroup" formControlName="bloodGroup" required>
+                        <mat-error>
+                            Please provide a valid BloodGroup
+                        </mat-error>
+                    </mat-form-field>
+
+
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="Citizenship" formControlName="citizenship">
+                        <mat-error>
+                            Please provide a valid Citizenship
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="flex-container" fxLayout="row" fxLayout.xs="column">
+
+                    <mat-form-field class="full-width-input">
+                        <mat-label>Marital Status</mat-label>
+                        <mat-select formControlName="maritalStatus" required>
+                            <mat-option *ngFor="let status of ['Married','Unmarried','Widow']" [value]="status">
+                                {{status}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error>
+                            Please provide a valid MaritalStatus
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="Passport" formControlName="passport">
+                        <mat-error>
+                            Please provide a valid Passport
+                        </mat-error>
+                    </mat-form-field>
+
+
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="Aadhar" formControlName="aadhar">
+                        <mat-error>
+                            Please provide a valid Aadhar
+                        </mat-error>
+                    </mat-form-field>
+
+
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="UAN" formControlName="uan">
+                        <mat-error>
+                            Please provide a valid UAN
+                        </mat-error>
+                    </mat-form-field>
+
+                </div>
+                <div class="flex-container" fxLayout="row" fxLayout.xs="column">
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="PAN" formControlName="pan">
+                        <mat-error>
+                            Please provide a valid PAN
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="SSN" formControlName="ssn">
+                        <mat-error>
+                            Please provide a valid SSN
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="DrivingLicense" formControlName="drivingLicense">
+                        <mat-error>
+                            Please provide a valid DrivingLicense
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width-input" color="accent">
+                        <mat-label>Marriage Date</mat-label>
+                        <input matInput [matDatepicker]="pickermd" formControlName="marriageDate">
+                        <mat-datepicker-toggle matSuffix [for]="pickermd"></mat-datepicker-toggle>
+                        <mat-datepicker #pickermd></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="flex-container" fxLayout="row" fxLayout.xs="column">
+                    <!-- <mat-form-field class="full-width-input">
+                        <input matInput placeholder="created by" formControlName="created_by" required>
+                        <mat-error>
+                            Please provide a valid created_by
+                        </mat-error>
+                    </mat-form-field> -->
+
+                    <div class="full-width-input">
+                        <button mat-raised-button color="primary" [disabled]="!empForm.valid">Save</button>
+                    </div>
+                    <div class="full-width-input"></div>
+                    <div class="full-width-input"></div>
+                    <div class="full-width-input"></div>
+                </div>
+
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

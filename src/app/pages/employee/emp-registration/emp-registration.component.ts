@@ -1,32 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { LoginService } from '../../../shared/login/login.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { EmpService } from '../emp.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { CommonService } from 'src/app/util/common.service';
 
 @Component({
   selector: 'app-emp-registration',
   templateUrl: './emp-registration.component.html',
   styleUrls: ['./emp-registration.component.scss']
 })
-export class EmpRegistrationComponent implements OnInit {
+export class EmpRegistrationComponent implements OnInit, OnDestroy {
   sub: Subscription;
   empForm: FormGroup;
   public message: string;
   public errorClass: string = 'error';
 
   constructor(private route: ActivatedRoute, private loginService: LoginService,
-    private fb: FormBuilder, private empService: EmpService) { }
+    private fb: FormBuilder, private empService: EmpService, private commonService: CommonService) { }
   ngOnDestroy(): void {
     this.sub.unsubscribe();
+    this.commonService.closeErrorMessage();
   }
   ngOnInit(): void {
     this.sub = this.route.data.subscribe((routeData) => {
       this.loginService.pageHead.next(routeData.title);
     });
-
+  
     this.empForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', Validators.email],
@@ -42,6 +44,7 @@ export class EmpRegistrationComponent implements OnInit {
       this.empService.registerEmployee(value).subscribe((resData) => {
         console.log(resData);
         this.message = 'Employee registered successfully!';
+        this.commonService.openErorMessage(this.message);
         this.errorClass = "message";
       }, (error: HttpErrorResponse) => {
         console.log(error);
@@ -55,6 +58,9 @@ export class EmpRegistrationComponent implements OnInit {
           this.message = error.message;
           this.errorClass = "error";
 
+        }
+        if (this.message) {
+          this.commonService.openErorMessage(this.message, 'error');
         }
       })
     }

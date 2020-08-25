@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient, HttpResponse } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
 export class LoginService {
   serviceURL: string = 'http://localhost:8080/api/v1/';
   public isAuthenticated = new BehaviorSubject<boolean>(false);
+
   public pageHead = new BehaviorSubject<string>('');
+
   constructor(private http: HttpClient, private router: Router) { }
 
 
@@ -31,4 +33,6 @@ export class LoginService {
     this.isAuthenticated.next(false);
     this.router.navigate(['/login']);
   }
+ 
+
 }

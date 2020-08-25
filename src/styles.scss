@@ -5,6 +5,9 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.header div{
-    padding:0 0 10px;
+.full-width-input {
+    margin-right: 20px; width:100%;
+}
+.mat-card{
+    width:calc(100% - 32px);
 }

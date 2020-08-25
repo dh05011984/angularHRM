@@ -10,4 +10,8 @@
 
 <app-side-nav *ngIf="isAuthenticated"></app-side-nav>
 <app-login *ngIf="!isAuthenticated"></app-login>
-<!-- <router-outlet *ngIf="!isAuthenticated"></router-outlet> -->
+<!-- <router-outlet *ngIf="!isAuthenticated"></router-outlet> [bdOpacity]= "0.7" [bdColor] = "'#333'"  bdColor="rgba(0, 0, 0, 0.8)" -->
+
+<ngx-spinner [bdOpacity]="0.7" bdColor="rgba(51,51,51,0.7)" size="large" color="#fff" type="timer"
+    [fullScreen]="true">
+</ngx-spinner>

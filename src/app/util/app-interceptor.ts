@@ -1,19 +1,19 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-import 'rxjs/add/operator/do';
+import { NgxSpinnerService } from "ngx-spinner";
+// import 'rxjs/operators';
+import { finalize, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AppInterceptor implements HttpInterceptor {
-  constructor() { }
+  constructor(private spinner: NgxSpinnerService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
     // if (!req.url.includes('Products/GETFilteredProductDetail'))  // uncomment this line when want to show loader dhananjay 1
-    //   this.spinner.show();
+    this.spinner.show();
 
     /*
     console.log(req.url);
@@ -28,18 +28,19 @@ export class AppInterceptor implements HttpInterceptor {
 
     // const clonedReq = req.clone({ headers });
 */
-    return next.handle(req).do((event: HttpEvent<any>) => {
-      if (event instanceof HttpResponse) {
-        //  this.spinner.hide(); // uncomment this line when want to show loader dhananjay 2
-      }
-    }, (err: any) => {
-      if (err instanceof HttpErrorResponse) {
-        const started = Date.now();
-        const elapsed = Date.now() - started;
-        // this.spinner.hide();
-        console.log(`Request for ${req.urlWithParams} failed after ${elapsed} ms.`);
-        // debugger;
-      }
-    });
+    return next.handle(req).pipe(
+      tap((event: HttpEvent<any>) => {
+        if (event instanceof HttpResponse) {
+          this.spinner.hide(); // uncomment this line when want to show loader dhananjay 2
+        }
+      }, (err: any) => {
+        if (err instanceof HttpErrorResponse) {
+          const started = Date.now();
+          const elapsed = Date.now() - started;
+          this.spinner.hide();
+          console.log(`Request for ${req.urlWithParams} failed after ${elapsed} ms.`);
+          // debugger;
+        }
+      }))
   }
 }

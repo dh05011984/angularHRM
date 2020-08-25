@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-// import { AuthInterceptor } from './util/app-interceptor';
+import { AppInterceptor } from './util/app-interceptor';
 /* Angular material */
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './material.module';
@@ -12,9 +12,9 @@ import { AngularMaterialModule } from './material.module';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { LoginComponent } from './shared/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-// import { EmpRegistrationComponent } from './pages/employee/emp-registration/emp-registration.component';
-// import { EmployeeModule } from './pages/employee/emp.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -23,6 +23,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     // PagesComponent,
     LoginComponent,
     DashboardComponent
+    // StarRatingComponent
   ],
   imports: [
     BrowserModule,
@@ -30,10 +31,12 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FlexLayoutModule,
+    NgxSpinnerModule
   ],
   providers: [
-
+    { provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
