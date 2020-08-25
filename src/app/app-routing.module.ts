@@ -2,7 +2,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MatSliderModule } from '@angular/material/slider';
 // import { PagesComponent } from './pages/pages.component';
-import { LoginComponent } from './shared/login/login.component';
+import { LoginComponent } from './pages/login/login.component';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 

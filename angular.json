@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "hrmApp"
+  "defaultProject": "hrmApp",
+  "cli": {
+    "analytics": "ba45e3d5-178c-40bf-bd52-41840a60f86a"
+  }
 }

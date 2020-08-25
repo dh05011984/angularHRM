@@ -1,5 +1,5 @@
 import { Component, ViewChild, HostListener, Input } from '@angular/core';
-import { LoginService } from './shared/login/login.service';
+import { LoginService } from './_services/login.service';
 
 enum loaderTypes {
   packman = 'packman',

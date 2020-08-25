@@ -1,11 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { LoginService } from '../../../shared/login/login.service';
+import { LoginService } from '../../../_services/login.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { EmpService } from '../emp.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { CommonService } from 'src/app/util/common.service';
+import { CommonService } from 'src/app/_services/common.service';
 
 @Component({
   selector: 'app-emp-registration',

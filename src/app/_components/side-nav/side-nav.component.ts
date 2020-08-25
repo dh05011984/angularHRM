@@ -1,6 +1,6 @@
 import { Component, ViewChild, HostListener, OnInit } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { LoginService } from '../shared/login/login.service';
+import { LoginService } from '../../_services/login.service';
 import { Router } from '@angular/router';
 import { delay } from 'rxjs/operators';
 

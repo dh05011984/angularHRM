@@ -4,13 +4,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AppInterceptor } from './util/app-interceptor';
+import { AppInterceptor } from './_util/app-interceptor';
 /* Angular material */
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './material.module';
 // import { PagesComponent } from './pages/pages.component';
-import { SideNavComponent } from './side-nav/side-nav.component';
-import { LoginComponent } from './shared/login/login.component';
+import { SideNavComponent } from './_components/side-nav/side-nav.component';
+import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 

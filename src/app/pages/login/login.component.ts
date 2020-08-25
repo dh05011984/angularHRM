@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LoginService } from './login.service';
-import { CommonService } from '../../util/common.service';
+import { LoginService } from '../../_services/login.service';
+import { CommonService } from '../../_services/common.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({

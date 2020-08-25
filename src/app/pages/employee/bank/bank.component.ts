@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { EmpService } from '../emp.service';
-import { CommonService } from 'src/app/util/common.service';
+import { CommonService } from 'src/app/_services/common.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
 

@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { StarRatingColor } from '../../../shared/star-rating/star-rating.component';
+import { StarRatingColor } from '../../../_components/star-rating/star-rating.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { EmpService } from '../emp.service';
-import { CommonService } from 'src/app/util/common.service';
+import { CommonService } from 'src/app/_services/common.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
 import { MatPaginator } from '@angular/material/paginator';

@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { EmpService } from '../emp.service';
-import { CommonService } from 'src/app/util/common.service';
+import { CommonService } from 'src/app/_services/common.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({

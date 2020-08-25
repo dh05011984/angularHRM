@@ -10,7 +10,7 @@ import { EmpProfileComponent } from './emp-profile/emp-profile.component';
 import { EmpHomeComponent } from './emp-home/emp-home.component';
 import { EmpSkillsComponent } from './emp-skills/emp-skills.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { StarRatingComponent } from '../../shared/star-rating/star-rating.component';
+import { StarRatingComponent } from '../../_components/star-rating/star-rating.component';
 import { BankComponent } from './bank/bank.component';
 
 @NgModule({

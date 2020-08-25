@@ -4,7 +4,7 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { Observable, Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-import { LoginService } from '../../shared/login/login.service';
+import { LoginService } from '../../_services/login.service';
 
 @Component({
   selector: 'app-dashboard',
