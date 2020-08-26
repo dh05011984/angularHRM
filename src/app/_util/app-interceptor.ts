@@ -40,7 +40,8 @@ export class AppInterceptor implements HttpInterceptor {
           this.spinner.hide();
           console.log(`Request for ${req.urlWithParams} failed after ${elapsed} ms.`);
           // debugger;
-        }
+        } 
+        this.spinner.hide();
       }))
   }
 }
